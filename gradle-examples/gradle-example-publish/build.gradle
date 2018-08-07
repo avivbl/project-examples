@@ -63,7 +63,12 @@ configure(javaProjects()) {
         }
     }
 }
-
+configurations {
+    localArchives
+}
+artifacts {
+   localArchives file('build/foo.txt')
+}
 project('api') {
     apply plugin: 'ivy-publish'
 
