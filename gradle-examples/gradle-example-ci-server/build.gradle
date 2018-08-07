@@ -44,6 +44,12 @@ allprojects {
             simpleFile '**:**:**:*@*', simpleFile: 'only on settings file'
         }
     }
+    
+    def someFile = file('build/somefile.txt')
+
+  artifacts {
+    archives someFile
+  }
 }
 publishing {
         publications {
