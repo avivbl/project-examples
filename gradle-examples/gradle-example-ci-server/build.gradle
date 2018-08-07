@@ -37,6 +37,13 @@ allprojects {
             }
         }
     }
+    
+    artifactoryPublish {
+        publications(publishing.publications.ivyJava)
+        properties {
+            simpleFile '**:**:**:*@*', simpleFile: 'only on settings file'
+        }
+    }
 }
 publishing {
         publications {
