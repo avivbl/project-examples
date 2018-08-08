@@ -23,43 +23,12 @@ buildscript {
 allprojects {
   apply plugin: 'java'
   apply plugin: 'maven'
-  apply plugin: 'maven-publish'
 
   group = 'org.jfrog.example.gradle'
   version = '1.0'
   status = 'integration'
-  
-  publishing {
-        publications {
-            mavenJava(MavenPublication) {
-                from components.java
-                artifact(file("../gradle.properties"))
-            }
-        }
-    }
-    
-    artifactoryPublish {
-        publications(publishing.publications.ivyJava)
-        properties {
-            simpleFile '**:**:**:*@*', simpleFile: 'only on settings file'
-        }
-    }
-    
-    def someFile = file('build/somefile.txt')
-
-  artifacts {
-    archives someFile
-  }
 }
-publishing {
-        publications {
-            mavenJava(MavenPublication) {
-                from components.java
-                artifact(file("../gradle.properties"))
-            }
-        }
-    }
 
 // Setting this property to true will make the artifactoryPublish task
 // skip this module (in our case, the root module):
-artifactoryPublish.skip = false
+artifactoryPublish.skip = true
