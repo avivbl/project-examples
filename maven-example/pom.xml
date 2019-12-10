@@ -28,6 +28,14 @@
         </dependency>
     </dependencies>
 
+    <distributionManagement>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>ip-10-1-80-77.eu-west-1.compute.internal-snapshots</name>
+        <url>http://localhost:8081/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
+    </distributionManagement>
+    
     <build>
         <pluginManagement>
             <plugins>
